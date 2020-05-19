@@ -25,9 +25,6 @@ end
     #puts "Debug Weather Test: #{@forecast["current"]["weather"][0]["description"]}"
 #end
 
-
-#puts "Hourly Temperatures and Wind Speeds:"
-
 #hour_number=1
 #for hour in @forecast["hourly"]
     #if hour_number==1
