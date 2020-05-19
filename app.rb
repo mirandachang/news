@@ -6,13 +6,16 @@ require "httparty"
 #get "/" do
   ### Get the weather
   # Evanston, Kellogg Global Hub... replace with a different location if you want
-  lat = 40.582305
-  long = -80.170219
-  units = "imperial"
-  key = "e2287273035896a82b22c35ccc9b94ff"
-  url = "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{long}&units=#{units}&appid=#{key}"
+  
+#WEATHER
 
- @forecast = HTTParty.get(url).parsed_response.to_hash
+lat = 40.582305
+long = -80.170219
+units = "imperial"
+key = "e2287273035896a82b22c35ccc9b94ff"
+url = "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{long}&units=#{units}&appid=#{key}"
+
+@forecast = HTTParty.get(url).parsed_response.to_hash
 
 puts "Right now, it is #{@forecast["current"]["temp"]} degrees at Sewickley Heights Golf Club, with #{@forecast["current"]["wind_speed"]} mph wind from the"
 
@@ -68,6 +71,15 @@ for hour in @forecast["hourly"]
 break if hour_number==7
 hour_number=hour_number+1
 end
+
+#NEWS
+
+search_term = "golf"
+news_key = "cd981733a89642dcbe51e7d8eee39da9"
+search_section = "everything"
+news_url = "https://newsapi.org/v2/#{search_section}?q=#{search_term}&apiKey=#{news_key}"
+@news = HTTParty.get(news_url).parsed_response.to_hash
+
 
 
 #end
