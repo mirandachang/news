@@ -18,17 +18,25 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Golf Weather and News</title>
+    <title>Golf Now</title>
   </head>
   <body>
 
-    <div class="container mt-5">
-      <h1>Golf Page</h1>
+  <div class="jumbotron">
+    <h1 class="display-4">Golfing at Sewickley Heights Golf Club</h1>
+  </div>  
+
+    <div class="container">
+        <h2>Current Weather</h2>
     </div>
 
     <p>
     Right now, it is <%= @forecast["current"]["temp"] %> degrees at Sewickley Heights Golf Club, with <%= @forecast["current"]["wind_speed"] %> mph wind from the
     </p>
+
+    <div class="container">
+        <h2>Hourly Forecast</h2>
+    </div>
 
 
     <!-- Optional JavaScript -->
