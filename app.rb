@@ -6,7 +6,7 @@ require "httparty"
 def view(template); erb template.to_sym; end
 
 get "/" do
-    puts "news"
+    view 'news'
 end
   
 #WEATHER
