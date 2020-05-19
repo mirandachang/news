@@ -18,7 +18,7 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>News</title>
+    <title>Golf Weather and News</title>
   </head>
   <body>
 
@@ -27,7 +27,7 @@
     </div>
 
     <p>
-    Right now, it is <% #{@forecast["current"]["temp"]} %> degrees at Sewickley Heights Golf Club, with <% #{@forecast["current"]["wind_speed"]} %> mph wind from the
+    Right now, it is <%= @forecast["current"]["temp"] %> degrees at Sewickley Heights Golf Club, with <%= @forecast["current"]["wind_speed"] %> mph wind from the
     </p>
 
 
