@@ -1,3 +1,5 @@
+debug = true
+
 #require "sinatra"
 #require "sinatra/reloader"
 require "httparty"
@@ -16,6 +18,10 @@ key = "e2287273035896a82b22c35ccc9b94ff"
 url = "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{long}&units=#{units}&appid=#{key}"
 
 @forecast = HTTParty.get(url).parsed_response.to_hash
+
+if debug == true
+    puts "Debug Weather Test: #{@forecast["current"]["weather"][0]["description"]}"
+end
 
 puts "Right now, it is #{@forecast["current"]["temp"]} degrees at Sewickley Heights Golf Club, with #{@forecast["current"]["wind_speed"]} mph wind from the"
 
@@ -74,12 +80,24 @@ end
 
 #NEWS
 
+search_section = "everything"
 search_term = "golf"
 news_key = "cd981733a89642dcbe51e7d8eee39da9"
-search_section = "everything"
+#Sorry, I hope it's ok that I decided against going with the top headlines and, instead, decided to query within the "everything" section. I wanted the news results to make sense given the intent of the provided weather information.
 news_url = "https://newsapi.org/v2/#{search_section}?q=#{search_term}&apiKey=#{news_key}"
 @news = HTTParty.get(news_url).parsed_response.to_hash
 
+if debug == true
+    puts "Debug News Test: #{@news["articles"][0]["title"]}"
+end
 
+story_number = 0
+    for story in @news["articles"]
+        puts "Article Title: #{story[story_number]["title"]}"
+        @link = story[story_number]["url"]
+        @image = story[story_number]["urlToImage"]
+    break if story_number == 5
+    story_number = story_number+1
+end
 
 #end
