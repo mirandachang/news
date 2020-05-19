@@ -6,9 +6,7 @@ require "httparty"
 def view(template); erb template.to_sym; end
 
 get "/" do
-    view 'news'
-end
-  
+
 #WEATHER
 
 lat = 40.582305
@@ -18,6 +16,12 @@ key = "e2287273035896a82b22c35ccc9b94ff"
 url = "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{long}&units=#{units}&appid=#{key}"
 
 @forecast = HTTParty.get(url).parsed_response.to_hash
+    
+view 'news'
+
+end
+  
+
 
 if debug == true
     puts "Debug Weather Test: #{@forecast["current"]["weather"][0]["description"]}"
