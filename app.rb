@@ -54,6 +54,20 @@ else
     puts "unknown direction."
 end
 
+puts "Hourly Temperatures and Wind Speeds:"
+
+hour_number=1
+for hour in @forecast["hourly"]
+    if hour_number==1
+        puts "In an hour, it will be #{hour["temp"]} degrees with #{hour["wind_speed"]} mph wind."
+    elsif hour_number>1 && hour_number<8
+        puts "In #{hour_number} hours, it will be #{hour["temp"]} degrees with #{hour["wind_speed"]} mph wind."
+    else
+        puts "We are having trouble retrieving the hourly forecast. Please check back later!"
+    end
+break if hour_number==7
+hour_number=hour_number+1
+end
 
 
 #end
