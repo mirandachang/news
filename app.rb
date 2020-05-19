@@ -6,6 +6,8 @@ require "httparty"
 def view(template); erb template.to_sym; end
 
 get "/" do
+    puts "news"
+end
   
 #WEATHER
 
@@ -96,6 +98,4 @@ story_number = 0
         #@image = story[story_number]["urlToImage"]
     break if story_number == 4
     story_number = story_number+1
-end
-
 end
