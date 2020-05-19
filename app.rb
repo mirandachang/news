@@ -10,7 +10,7 @@ require "httparty"
   long = -80.170219
   units = "imperial"
   key = "e2287273035896a82b22c35ccc9b94ff"
-  url = "https://api.openweathermap.org/data/2.5/onecall?lat=40.582305&lon=-80.170219&units=imperial&appid=e2287273035896a82b22c35ccc9b94ff"
+  url = "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{long}&units=#{units}&appid=#{key}"
 
  @forecast = HTTParty.get(url).parsed_response.to_hash
 
