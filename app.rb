@@ -1,13 +1,11 @@
-debug = true
+debug = false
 
-#require "sinatra"
-#require "sinatra/reloader"
+require "sinatra"
+require "sinatra/reloader"
 require "httparty"
-#def view(template); erb template.to_sym; end
+def view(template); erb template.to_sym; end
 
-#get "/" do
-  ### Get the weather
-  # Evanston, Kellogg Global Hub... replace with a different location if you want
+get "/" do
   
 #WEATHER
 
@@ -93,11 +91,11 @@ end
 
 story_number = 0
     for story in @news["articles"]
-        puts "Article Title: #{story[story_number]["title"]}"
-        @link = story[story_number]["url"]
-        @image = story[story_number]["urlToImage"]
-    break if story_number == 5
+        puts "Article Title: #{@news["articles"][story_number]["title"]}"
+        #@link = story[story_number]["url"]
+        #@image = story[story_number]["urlToImage"]
+    break if story_number == 4
     story_number = story_number+1
 end
 
-#end
+end
