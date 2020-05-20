@@ -35,7 +35,7 @@
       <div class="container">
         <h2>Current Weather</h2>
       </div>
-        <p>
+        <p class="current_weather">
 
         Right now, it is <%= @forecast["current"]["temp"] %> degrees at Sewickley Heights Golf Club with <%= @forecast["current"]["wind_speed"] %> mph wind from the
 
@@ -76,8 +76,31 @@
         <% else %>
             unknown direction.
         <% end %>
+        
+        <br>
+        <br>
+
+        <% if @forecast["current"]["weather"][0]["main"] == "Rain" || @forecast["current"]["weather"][0]["main"] == "Thunderstorm" || @forecast["current"]["weather"][0]["main"] == "Drizzle" %>
+            It's a rainy day out there! Make sure you take your umbrella, raincoat, and golf bag rain cover and avoid hitting from very wet spots, lest you ruin the poa!
+        <% elsif @forecast["current"]["weather"][0]["main"] == "Clouds" %>
+            There are some clouds in the sky... probably your typical gray day in Pittsburgh. Get out there and golf!
+        <% elsif @forecast["current"]["weather"][0]["main"] == "Clear" %>
+            It's a beautiful, clear day out there! Get your tee time while you can and don't forget sunscreen and sunglasses!
+        <% elsif @forecast["current"]["weather"][0]["main"] == "Snow" %>
+            Brrrrr! It's snowing out there! Bundle up if you are intent on golfing and consider playing a brightly colored ball!
+        <% elsif @forecast["current"]["weather"][0]["main"] == "Mist" || @forecast["current"]["weather"][0]["main"] == "Smoke" || @forecast["current"]["weather"][0]["main"] == "Haze" || @forecast["current"]["weather"][0]["main"] == "Dust" || @forecast["current"]["weather"][0]["main"] == "Fog" || @forecast["current"]["weather"][0]["main"] == "Sand" || @forecast["current"]["weather"][0]["main"] == "Ash" %>
+            Uh-oh! The visibility isn't great today and we don't think it's a very good day for golf. Better stay inside today!
+        <% elsif @forecast["current"]["weather"][0]["main"] == "Squall" || @forecast["current"]["weather"][0]["main"] == "Tornado" %>
+            Whoa! It's storming today and dangerous out there! Please stay indoors today.
+        <% else %>
+            Unfortunately, we aren't able to provide an update on the current weather conditions at SHGC. Please contact us so that we can fix this issue, thanks!
+        <% end %>
 
         </p>
+
+        <div class="container icon">
+            <img class="img-fluid" src="http://openweathermap.org/img/wn/<%="#{@forecast["current"]["weather"][0]["icon"]}"%>@2x.png">
+        </div>
       </div>
 
 <div class="col-md-6">

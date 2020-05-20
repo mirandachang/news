@@ -24,3 +24,10 @@ h4
 body {font-family: 'Amiri', serif;}
 th {text-align: center!important;}
 tr {text-align: center;}
+div.icon
+    {display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;}
+p.current_weather {margin-top: 1.5rem}
+table {margin-top: 1.5rem;}
