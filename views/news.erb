@@ -104,16 +104,16 @@
 
   <div class="container">
   <h2>Golf News</h2>
-  <% story_number = 0 %>  
     <div class="row">
-        <div class="col-sm-4"
-            <% for story in @news["articles"] %>
-            Article Title: <%= "#{story["title"]}" %>
+    <% story_number = 0 %>          
+        <div class="col-sm-3"
+            <% for story in @news["articles"] %> 
+                Article Title: <%= "#{story["title"]}" %>
         </div>
-        <% break if story_number == 6 %>
-        <% story_number = story_number + 1 %>
-        <% end %>
-      </div>  
+    <% break if story_number == 6 %>
+    <% story_number = story_number + 1 %>
+    <% end %>
+    </div>
   </div>
 
 
