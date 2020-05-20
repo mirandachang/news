@@ -105,13 +105,7 @@
   <div class="container">
   <h2>Golf News</h2>
   <% story_number = 0 %>
-    <% for story in @news["articles"] %>
-        Article Title: <%= "story[story_number]["title"]}" %>
-        <!--<a href="<%="story[story_number]["url"]%>" target="_blank">Link to Article</a>-->
-        <!--image = story[story_number]["urlToImage"]-->
-    <% break if story_number == 4 %>
-    <% story_number = story_number+1 %>
-    <% end %>
+        Article Title: <%= "#{@news["articles"][story_number]["title"]}" %>
   </div>
 
 
