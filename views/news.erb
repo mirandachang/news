@@ -79,27 +79,32 @@
 
         </p>
       </div>
-    <div class="col-md-6">
-      <div class="container">
+
+<div class="col-md-6">
+    <div class="container">
         <h2>Hourly Forecast</h2>
-      </div>
-      <p>
-      <% hour_number = 1 %>
-        <% for hour in @forecast["hourly"] %>
-            <% if hour_number==1 %>
-                In an hour, it will be <%= "#{hour["temp"]}" %> degrees with <%= "#{hour["wind_speed"]}" %> mph wind.
-            <% elsif hour_number>1 && hour_number<9 %>
-                In <%= "#{hour_number}" %> hours, it will be <%= "#{hour["temp"]}" %> degrees with <%= "#{hour["wind_speed"]}" %> mph wind.
-            <% else %>
-                We are having trouble retrieving the hourly forecast. Please check back later!
-            <% end %>
-            <br>
-        <% break if hour_number == 7 %>
-        <% hour_number = hour_number + 1 %>
-        <% end %>
-        </p>
     </div>
-  </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Hours from Now</th>
+            <th scope="col">Temperature (°F)</th>
+            <th scope="col">Wind Speed (mph)</th>
+            </tr>
+        </thead>
+        <thead>
+            <% hour_number = 1 %>
+            <% for hour in @forecast["hourly"] %>
+            <tr>
+            <td scope="col"><%="#{hour_number}"%></td>    
+            <td scope="col"><%="#{hour["temp"]}"%></td>
+            <td scope="col"><%="#{hour["wind_speed"]}"%></td>
+            </tr>
+            <% break if hour_number == 7 %>
+            <% hour_number = hour_number+1 %>
+            <% end %>
+    </table>
+</div>
 
   <div class="container">
   <h2>Golf News</h2>
@@ -119,7 +124,6 @@
         </div>
     </div>
   </div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
