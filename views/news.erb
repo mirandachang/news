@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Google Fonts -->
-    <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -32,7 +31,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-md-6">
       <div class="container">
         <h2>Current Weather</h2>
       </div>
@@ -80,7 +79,7 @@
 
         </p>
       </div>
-    <div class="col">
+    <div class="col-md-6">
       <div class="container">
         <h2>Hourly Forecast</h2>
       </div>
@@ -89,7 +88,7 @@
         <% for hour in @forecast["hourly"] %>
             <% if hour_number==1 %>
                 In an hour, it will be <%= "#{hour["temp"]}" %> degrees with <%= "#{hour["wind_speed"]}" %> mph wind.
-            <% elsif hour_number>1 && hour_number<8 %>
+            <% elsif hour_number>1 && hour_number<9 %>
                 In <%= "#{hour_number}" %> hours, it will be <%= "#{hour["temp"]}" %> degrees with <%= "#{hour["wind_speed"]}" %> mph wind.
             <% else %>
                 We are having trouble retrieving the hourly forecast. Please check back later!
@@ -107,14 +106,14 @@
     <div class="row">
         <% story_number = 0 %>    
         <% for story in @news["articles"] %>       
-        <div class="col-sm-4"
+        <div class="col-md-4"
             <div>
                 <img class="img-fluid" src="<%="#{story["urlToImage"]}"%>"
                 <br>
                 <h4><%="#{story["title"]}"%></h4>
                 <a href="<%="#{story["url"]}"%>" target="_blank">Link to Story</a>
             </div>
-            <% break if story_number == 6 %>
+            <% break if story_number == 8 %>
             <% story_number = story_number + 1 %>
             <% end %>
         </div>
