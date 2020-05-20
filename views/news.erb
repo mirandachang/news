@@ -24,9 +24,11 @@
 <body>
 
 <div class="jumbotron jumbotron-fluid">
-    <h1 class="display-4">Golf Now</h1>
-    <h3>For the Sewickley Heights Golfers</h3>
+    <h1 class="display-4">Golf Conditions & News</h1>
+    <h3>For the Sewickley Heights Golfer</h3>
 </div>  
+
+<img class="img-fluid" src="/images/SHGC.jpeg">
 
 <div class="container">
   <div class="row">
@@ -98,6 +100,18 @@
         <% end %>
         </p>
     </div>
+  </div>
+
+  <div class="container">
+  <h2>Golf News</h2>
+  <% story_number = 0 %>
+    <% for story in @news["articles"] %>
+        Article Title: <%= "story[story_number]["title"]}" %>
+        <!--<a href="<%="story[story_number]["url"]%>" target="_blank">Link to Article</a>-->
+        <!--image = story[story_number]["urlToImage"]-->
+    <% break if story_number == 4 %>
+    <% story_number = story_number+1 %>
+    <% end %>
   </div>
 
 

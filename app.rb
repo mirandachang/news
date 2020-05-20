@@ -25,19 +25,6 @@ end
     #puts "Debug Weather Test: #{@forecast["current"]["weather"][0]["description"]}"
 #end
 
-#hour_number=1
-#for hour in @forecast["hourly"]
-    #if hour_number==1
-        #puts "In an hour, it will be #{hour["temp"]} degrees with #{hour["wind_speed"]} mph wind."
-    #elsif hour_number>1 && hour_number<8
-        #puts "In #{hour_number} hours, it will be #{hour["temp"]} degrees with #{hour["wind_speed"]} mph wind."
-    #else
-        #uts "We are having trouble retrieving the hourly forecast. Please check back later!"
-    #end
-#break if hour_number==7
-#hour_number=hour_number+1
-#end
-
 #NEWS
 
 search_section = "everything"
@@ -51,11 +38,11 @@ news_url = "https://newsapi.org/v2/#{search_section}?q=#{search_term}&apiKey=#{n
     #puts "Debug News Test: #{@news["articles"][0]["title"]}"
 #end
 
-#story_number = 0
-    #or story in @news["articles"]
-        #puts "Article Title: #{@news["articles"][story_number]["title"]}"
+story_number = 0
+    for story in @news["articles"]
+        puts "Article Title: #{@news["articles"][story_number]["title"]}"
         ##@link = story[story_number]["url"]
         ##@image = story[story_number]["urlToImage"]
-    #break if story_number == 4
-    #story_number = story_number+1
-#end
+    break if story_number == 4
+    story_number = story_number+1
+end
