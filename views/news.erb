@@ -37,45 +37,46 @@
       </div>
         <p class="current_weather">
 
-        Right now, it is <%= @forecast["current"]["temp"] %> degrees at Sewickley Heights Golf Club with <%= @forecast["current"]["wind_speed"] %> mph wind from the
+        Right now, it is <%= @forecast["current"]["temp"] %> degrees at Sewickley Heights Golf Club with <%="#{@forecast["current"]["humidity"]}"%>% humidity. There is <%= @forecast["current"]["wind_speed"] %> mph wind from the
 
         <% if @forecast["current"]["wind_speed"] < 11.25 %>
-            north.
+            north,
         <% elsif @forecast["current"]["wind_speed"] >=348.75 && @forecast["current"]["wind_speed"] <=360 %>
-            north.
+            north,
         <% elsif @forecast["current"]["wind_speed"] >= 11.25 && @forecast["current"]["wind_speed"] <33.75 %>
-            north-northeast.
+            north-northeast,
         <% elsif @forecast["current"]["wind_speed"] >= 33.75 && @forecast["current"]["wind_speed"] <56.25 %>
-            northeast.
+            northeast,
         <% elsif @forecast["current"]["wind_speed"] >= 56.25 && @forecast["current"]["wind_speed"] <78.75 %>
-            east-northeast.
+            east-northeast,
         <% elsif @forecast["current"]["wind_speed"] >= 78.75 && @forecast["current"]["wind_speed"] <101.25 %>
-            east.
+            east,
         <% elsif @forecast["current"]["wind_speed"] >= 101.25 && @forecast["current"]["wind_speed"] <123.75 %>
-            east-southeast.
+            east-southeast,
         <% elsif @forecast["current"]["wind_speed"] >= 123.75 && @forecast["current"]["wind_speed"] <146.25 %>
-            southeast.
+            southeast,
         <% elsif @forecast["current"]["wind_speed"] >= 146.25 && @forecast["current"]["wind_speed"] <168.75 %>
-            south-southeast.
+            south-southeast,
         <% elsif @forecast["current"]["wind_speed"] >= 168.75 && @forecast["current"]["wind_speed"] <191.25 %>
-            south.
+            south,
         <% elsif @forecast["current"]["wind_speed"] >= 191.25 && @forecast["current"]["wind_speed"] <213.75 %>
-            south-southwest.
+            south-southwest,
         <% elsif @forecast["current"]["wind_speed"] >= 213.75 && @forecast["current"]["wind_speed"] <236.25 %>
-            southwest.
+            southwest,
         <% elsif @forecast["current"]["wind_speed"] >= 236.25 && @forecast["current"]["wind_speed"] <258.75 %>
-            west-southwest.
+            west-southwest,
         <% elsif @forecast["current"]["wind_speed"] >= 258.75 && @forecast["current"]["wind_speed"] <281.25 %>
-            west.
+            west,
         <% elsif @forecast["current"]["wind_speed"] >= 281.25 && @forecast["current"]["wind_speed"] <303.75 %>
-            west-northwest.
+            west-northwest,
         <% elsif @forecast["current"]["wind_speed"] >= 303.75 && @forecast["current"]["wind_speed"] <326.25 %>
-            northwest.
+            northwest,
         <% elsif @forecast["current"]["wind_speed"] >= 326.25 && @forecast["current"]["wind_speed"] <348.75 %>
-            north-northwest.
+            north-northwest,
         <% else %>
-            unknown direction.
+            unknown direction,
         <% end %>
+        with <%="#{@forecast["current"]["wind_gust"]}"%> mph wind gusts. The cloud coverage is currently at <%="#{@forecast["current"]["clouds"]}"%>%.
         
         <br>
         <br>
@@ -99,7 +100,7 @@
         </p>
 
         <div class="container icon">
-            <img class="img-fluid" src="http://openweathermap.org/img/wn/<%="#{@forecast["current"]["weather"][0]["icon"]}"%>@2x.png">
+            <img class="img-fluid" src="http://openweathermap.org/img/wn/<%="#{@forecast["current"]["weather"][0]["icon"]}"%>@2x.png" width="115%">
         </div>
       </div>
 
@@ -128,6 +129,8 @@
             <% end %>
     </table>
 </div>
+
+
 
   <div class="container">
   <h2>Golf News</h2>
