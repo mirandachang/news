@@ -105,10 +105,12 @@
   <div class="container">
   <h2>Golf News</h2>
     <div class="row">
-    <% story_number = 0 %>          
-        <div class="col-sm-3"
+        <% story_number = 0 %>          
+        <div class="col-sm-4"
             <% for story in @news["articles"] %> 
                 Article Title: <%= "#{story["title"]}" %>
+                <a href="<%="#{story["url"]}"%>"" target="_blank">Link</a>
+                <img class="img-fluid" src="<%="#{story["urlToImage"]}"%>"
         </div>
     <% break if story_number == 6 %>
     <% story_number = story_number + 1 %>
