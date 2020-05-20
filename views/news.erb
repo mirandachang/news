@@ -108,11 +108,13 @@
         <% story_number = 0 %>          
         <div class="col-sm-4"
             <% for story in @news["articles"] %> 
-                <p>
+                <div>    
                 <img class="img-fluid" src="<%="#{story["urlToImage"]}"%>"
-                <h4><%="#{story["title"]}"%></h4>  
+                <br>
+                <h4><%="#{story["title"]}"%></h4>
+                <br>
                 <a href="<%="#{story["url"]}"%>" target="_blank">Link to Story</a>
-                </p>
+                </div>
         </div>
     <% break if story_number == 6 %>
     <% story_number = story_number + 1 %>
